@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 app.get('', (req, res) => {
   renderApi.auth(process.env.RENDER_API_KEY);
   renderApi.listServices({ includePreviews: 'true', limit: '20' })
-    .then( data  => {return res.status(200).send(data)})
+    .then( data  => {return res.status(200).send({data: data})})
     .catch(err => console.error(err));
 })
 
